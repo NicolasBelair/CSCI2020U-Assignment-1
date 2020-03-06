@@ -76,7 +76,6 @@ public class CirclePointsDrag extends Application {
             double newY = 120*(dy/Math.sqrt(dx*dx+dy*dy))+150;
 
             moveVertex2(vertex2, edge12, edge23, newX, newY);
-            System.out.println(String.valueOf(newX) + ", " + String.valueOf(newY));
 
             //update angle displays
             angle2.setX(newX+5);
@@ -121,7 +120,7 @@ public class CirclePointsDrag extends Application {
 
 
     //calculates angle between two edges meeting at a vertex
-    public String calculateAngle(Line adj1, Line adj2, Line op) {
+    private String calculateAngle(Line adj1, Line adj2, Line op) {
         double adj1Len = edgeLength(adj1);
         double adj2Len = edgeLength(adj2);
         double opLen = edgeLength(op);
@@ -134,13 +133,13 @@ public class CirclePointsDrag extends Application {
 
 
     //calculates length of an edge using Pythagorean theorem
-    public double edgeLength(Line v) {
+    private double edgeLength(Line v) {
         return Math.sqrt(Math.pow(v.getEndX()-v.getStartX(),2)+Math.pow(v.getEndY()-v.getStartY(),2));
     }// end edgeLength()
 
 
     //moveVertex functions; adjust the position of a vertex, as well as the ends of any edge touching them
-    public void moveVertex1(Circle vertex1, Line edge12, Line edge13, double newX, double newY) {
+    private void moveVertex1(Circle vertex1, Line edge12, Line edge13, double newX, double newY) {
         //move vertex
         vertex1.setCenterX(newX);
         vertex1.setCenterY(newY);
@@ -152,7 +151,7 @@ public class CirclePointsDrag extends Application {
         edge13.setStartY(newY);
     }// end moveVertex1
 
-    public void moveVertex2(Circle vertex2, Line edge12, Line edge23, double newX, double newY) {
+    private void moveVertex2(Circle vertex2, Line edge12, Line edge23, double newX, double newY) {
         //move vertex
         vertex2.setCenterX(newX);
         vertex2.setCenterY(newY);
@@ -164,7 +163,7 @@ public class CirclePointsDrag extends Application {
         edge23.setStartY(newY);
     }// end moveVertex2
 
-    public void moveVertex3(Circle vertex3, Line edge13, Line edge23, double newX, double newY) {
+    private void moveVertex3(Circle vertex3, Line edge13, Line edge23, double newX, double newY) {
         //move vertex
         vertex3.setCenterX(newX);
         vertex3.setCenterY(newY);
